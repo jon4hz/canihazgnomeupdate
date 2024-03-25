@@ -14,10 +14,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var Version = "devel"
+
 var rootCmd = &cobra.Command{
-	Use:  "canihazgnomeupdate",
-	Run:  root,
-	Args: cobra.ExactArgs(1),
+	Use:     "canihazgnomeupdate",
+	Run:     root,
+	Args:    cobra.ExactArgs(1),
+	Version: Version,
 }
 
 var rootCmdFlags struct {
