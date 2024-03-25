@@ -20,6 +20,14 @@ var rootCmd = &cobra.Command{
 	Args: cobra.ExactArgs(1),
 }
 
+var rootCmdFlags struct {
+	enabled bool
+}
+
+func init() {
+	rootCmd.Flags().BoolVar(&rootCmdFlags.enabled, "enabled", true, "Only search for enabled extensions")
+}
+
 func main() {
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
@@ -30,7 +38,7 @@ func root(cmd *cobra.Command, args []string) {
 	gnomeVersion := args[0]
 
 	// list local extensions
-	exts, err := extensions.List(true)
+	exts, err := extensions.List(rootCmdFlags.enabled)
 	if err != nil {
 		log.Fatalln("Failed to get installed extensions: ", err)
 	}
