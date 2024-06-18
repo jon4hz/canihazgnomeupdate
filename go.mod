@@ -6,7 +6,7 @@ require (
 	github.com/Masterminds/semver v1.5.0
 	github.com/charmbracelet/huh/spinner v0.0.0-20240321161533-278656239a9d
 	github.com/charmbracelet/lipgloss v0.11.0
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.8.1
 )
 
 require (
