@@ -56,7 +56,8 @@ func root(cmd *cobra.Command, args []string) {
 			for _, ext := range exts {
 				result, err := gnome.SearchExtension(ext)
 				if err != nil {
-					log.Fatalln("Failed to search extensions: ", err)
+					log.Println("Failed to search extensions: ", err)
+					continue
 				}
 
 				results = append(results, checkResult{
