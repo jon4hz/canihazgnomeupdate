@@ -40,7 +40,7 @@ jobs:
       - if: ${{ github.event_name == 'workflow_dispatch' }}
         shell: bash
         run: echo "flags=--nightly" >> $GITHUB_ENV
-      - uses: goreleaser/goreleaser-action@v6
+      - uses: goreleaser/goreleaser-action@v7
         if: steps.cache.outputs.cache-hit != 'true' # do not run if cache hit
         with:
           distribution: goreleaser-pro
@@ -75,7 +75,7 @@ jobs:
           key: linux-${{ env.sha_short }}
 
       # release
-      - uses: goreleaser/goreleaser-action@v6
+      - uses: goreleaser/goreleaser-action@v7
         if: steps.cache.outputs.cache-hit != 'true' # do not run if cache hit
         with:
           version: latest
